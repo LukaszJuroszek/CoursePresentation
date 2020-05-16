@@ -8,5 +8,10 @@ namespace UnitTestPresentation.Repository
         public DbSet<User> Users { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingEvent> BookingEvent { get; set; }
+
+        public PresentationDbContext(DbContextOptions<PresentationDbContext> options) : base(options)
+        {
+
+        }
     }
 }

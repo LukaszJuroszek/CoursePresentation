@@ -5,15 +5,15 @@ using System.Linq.Expressions;
 
 namespace UnitTestPresentation.Repository
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository
     {
-        void Add(TEntity entity);
-        IQueryable<TEntity> All();
-        TEntity Find(Expression<Func<TEntity, bool>> predicate);
-        void Update(TEntity entity);
+        void Add<TEntity>(TEntity entity) where TEntity : class;
+        IQueryable<TEntity> All<TEntity>() where TEntity : class;
+        TEntity Find<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
+        void Update<TEntity>(TEntity entity) where TEntity : class;
     }
 
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository : IRepository
     {
         private readonly DbContext _context;
 
@@ -22,23 +22,23 @@ namespace UnitTestPresentation.Repository
             _context = context;
         }
 
-        public void Add(TEntity entity)
+        public void Add<TEntity>(TEntity entity) where TEntity : class
         {
             _context.Entry(entity).State = EntityState.Added;
             _context.SaveChanges();
         }
 
-        public IQueryable<TEntity> All()
+        public IQueryable<TEntity> All<TEntity>() where TEntity : class
         {
             return _context.Set<TEntity>();
         }
 
-        public TEntity Find(Expression<Func<TEntity, bool>> predicate)
+        public TEntity Find<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class
         {
             return _context.Set<TEntity>().FirstOrDefault(predicate);
         }
 
-        public void Update(TEntity entity)
+        public void Update<TEntity>(TEntity entity) where TEntity : class
         {
             _context.Entry(entity).State = EntityState.Modified;
         }

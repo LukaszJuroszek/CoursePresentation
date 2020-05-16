@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestPresentation.Reposi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestPresentation.Tests", "UnitTestPresentation.Tests\UnitTestPresentation.Tests.csproj", "{34F2281E-D854-422A-9637-ED6B60D8A4A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPresentation.Services", "UnitTestPresentation.Services\UnitTestPresentation.Services.csproj", "{E7BEC123-D299-4CCE-AF2E-5A4E48AC677D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestPresentation.Services", "UnitTestPresentation.Services\UnitTestPresentation.Services.csproj", "{E7BEC123-D299-4CCE-AF2E-5A4E48AC677D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
