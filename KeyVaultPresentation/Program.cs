@@ -16,13 +16,16 @@ namespace KeyVaultPresentation
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((context, builder)=> {
+                 .ConfigureAppConfiguration((context, builder) =>
+                {
 
-                    //builder.AddAzureKeyVault();
-                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                    var keyVaultClient = new KeyVaultClient(
-                        new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                    //builder.AddAzureKeyVault()
+                    if (string.IsNullOrEmpty(GetKeyVaultEndPoint()) == false)
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(
+                            new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                        builder.AddAzureKeyVault(GetKeyVaultEndPoint(), keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

@@ -10,6 +10,7 @@ namespace UnitTestPresentation.Services
     {
         IEnumerable<Booking> GetUserBookings(int userId);
         IEnumerable<BookingEvent> GetBookingEventsForAppliactionType(ApplicationType type);
+        void Book(User user, BookingEvent bookingEvent);
     }
 
     public class BookingService : IBookingService
@@ -36,6 +37,18 @@ namespace UnitTestPresentation.Services
         public IEnumerable<BookingEvent> GetBookingEventsForAppliactionType(ApplicationType type)
         {
             return _repository.All<BookingEvent>().Where(x => x.ApplicationType == type && x.Date < DateTime.UtcNow);
+        }
+
+        public void Book(User user, BookingEvent bookingEvent)
+        {
+            var booking = new Booking
+            {
+                User = user,
+                BookingEvent = bookingEvent,
+                BookingDate = DateTime.UtcNow
+            };
+
+            _repository.Add(booking);
         }
     }
 }

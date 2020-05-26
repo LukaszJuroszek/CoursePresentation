@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestPresentation.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestPresentation.DAL", "UnitTestPresentation.DAL\UnitTestPresentation.DAL.csproj", "{C2260266-7742-43FE-9361-00C0261CD62B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyVaultPresentation", "KeyVaultPresentation\KeyVaultPresentation.csproj", "{3EA91BD6-851B-49DB-98C4-EE2053D1C788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyVaultPresentation", "KeyVaultPresentation\KeyVaultPresentation.csproj", "{3EA91BD6-851B-49DB-98C4-EE2053D1C788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPresentation.Web", "UnitTestPresentation.Web\UnitTestPresentation.Web.csproj", "{18417FDA-BFAD-4B2D-9913-F5937B387EFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3EA91BD6-851B-49DB-98C4-EE2053D1C788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EA91BD6-851B-49DB-98C4-EE2053D1C788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EA91BD6-851B-49DB-98C4-EE2053D1C788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18417FDA-BFAD-4B2D-9913-F5937B387EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18417FDA-BFAD-4B2D-9913-F5937B387EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18417FDA-BFAD-4B2D-9913-F5937B387EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18417FDA-BFAD-4B2D-9913-F5937B387EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
