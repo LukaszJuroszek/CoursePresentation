@@ -1,4 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using UnitTestPresentation.DAL;
@@ -33,12 +36,27 @@ namespace UnitTestPresentation.Web.Controllers
             var user = _repository.Find<User>(x => x.Id == booking.UserId);
             if (bookingEvent == null || user == null)
             {
-                return new NotFoundResult();
+                return NotFound();
             }
 
             _bookingService.Book(user, bookingEvent);
-            
-            return new OkResult();
+
+            return Ok();
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Booking>> GetBookings(int userId)
+        {
+            var user = _repository.Find<User>(x => x.Id == userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var result = _bookingService.GetUserBookings(userId);
+            var result2 = result.Count();
+            return Ok(result);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

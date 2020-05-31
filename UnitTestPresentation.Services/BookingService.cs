@@ -25,12 +25,13 @@ namespace UnitTestPresentation.Services
         public IEnumerable<Booking> GetUserBookings(int userId)
         {
             var user = _repository.Find<User>(x => x.Id == userId);
+
             if (user != null)
             {
                 return _repository.All<Booking>()
-                    .Where(x => x.User.Id == user.Id &&
-                    x.BookingDate < DateTime.UtcNow);
+                                  .Where(x => x.User.Id == user.Id && x.BookingDate < DateTime.UtcNow);
             }
+
             return Enumerable.Empty<Booking>();
         }
 
