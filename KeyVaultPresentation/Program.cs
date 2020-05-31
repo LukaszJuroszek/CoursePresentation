@@ -33,6 +33,6 @@ namespace KeyVaultPresentation
                 });
 
 
-        public static string GetKeyVaultEndPoint() => "";
+        public static string GetKeyVaultEndPoint() => "https://lj-vault.vault.azure.net/";
     }
 }
